@@ -12,6 +12,11 @@ Abrevations:
 
 */
 
+
+function rand(num){
+	return (Math.ceil(Math.random() * num));
+}
+
 function Race(name, hieght, wieght, con, str, dex, ine, wis, cha, skillpls, size, spd, vision, lang, features){
 	this.name = name
 	this.wieght = wieght
@@ -36,7 +41,7 @@ tiefling = new Race("Tiefling", [66, 74], [140, 230], 0, 0, 0, 2, 0, 2,[["stealt
 
 function Clas(name, ac, fort, ref, will, hpbase, hpperlvl, hsbase, trained_skills, features){
 	this.name = name
-	this.defpls = defpls
+	//this.defpls = defpls
 	this.hpbase = hpbase
 	this.hpperlvl = hpperlvl
 	this.hsbase = hsbase
@@ -51,7 +56,7 @@ rogue = Clas("Rogue", 0, 0, 2, 0, 12, 5, 6, ["stealth", "thievery"], ["First Str
 
 
 
-function Player(name, race, clas, size, alignment, deity, str, con, dex, ine, wis, cha, hp, race_features, clas_features, skills, lang, feats, rituals, items){
+function Player(name, race, clas, alignment, deity, str, con, dex, ine, wis, cha, hp, skills, lang, feats, rituals, items){
 	this.name = name;
 	this.race = race;
 	this.clas = clas;
@@ -94,6 +99,8 @@ function Player(name, race, clas, size, alignment, deity, str, con, dex, ine, wi
 	this.ref = ref + this.clas.ref;
 	this.will = will + this.clas.will;
 	this.race_features = this.race.features;
+	this.clas_features = this.clas.clas_features
+	this.init = this.dex + Math.floor(lvl / 2)
 	this.skills = skills;
 	this.lang = lang + this.race.lang
 	this.feats = feats;
@@ -101,6 +108,55 @@ function Player(name, race, clas, size, alignment, deity, str, con, dex, ine, wi
 	this.items = items;
 	this.lvl = 1
    
+}
+//Method 3
+
+
+
+
+
+
+function bubbleSort(arr){
+   var len = arr.length;
+   for (var i = len-1; i>=0; i--){
+     for(var j = 1; j<=i; j++){
+       if(arr[j-1]>arr[j]){
+           var temp = arr[j-1];
+           arr[j-1] = arr[j];
+           arr[j] = temp;
+        }
+     }
+   }
+   return arr;
+}
+function GenScores() {
+	var scores = [0,0,0,0,0,0]
+	var scoremod = 0
+		while (scoremod <= 4 || scoremod >= 8){
+		scores = []
+	
+	
+	
+		for (var i =0; i < 6; i ++){
+			var roll1 = rand(6)
+			var roll2 = rand(6)
+			var roll3 = rand(6)
+			var roll4 = rand(6)
+		
+			var sorted = bubbleSort([roll1, roll2, roll3, roll4])
+		
+			scores.push(sorted[3] + sorted[2] + sorted[1])
+		}
+		console.log(scores)
+		scoremod = Math.floor((scores[0] / 2) - 5) + Math.floor((scores[1] / 2) - 5) + Math.floor((scores[1] / 2) - 5) + Math.floor((scores[2] / 2) - 5) + Math.floor((scores[3] / 2) - 5) + Math.floor((scores[4] / 2) - 5) + Math.floor((scores[5] / 2) - 5)
+		console.log(scoremod)
+	}	
+		
+	
+	
+	
+	
+	
 }
 
 
