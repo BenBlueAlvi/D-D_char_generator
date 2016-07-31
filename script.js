@@ -129,34 +129,46 @@ function bubbleSort(arr){
    }
    return arr;
 }
-function GenScores() {
-	var scores = [0,0,0,0,0,0]
-	var scoremod = 0
-		while (scoremod <= 4 || scoremod >= 8){
-		scores = []
-	
-	
-	
-		for (var i =0; i < 6; i ++){
-			var roll1 = rand(6)
-			var roll2 = rand(6)
-			var roll3 = rand(6)
-			var roll4 = rand(6)
+function GenScores(method) {
+	switch (method){
+		case 1:
 		
-			var sorted = bubbleSort([roll1, roll2, roll3, roll4])
+			scores = [16, 14, 13, 12, 11, 10]
+			return scores
+			break;
+			
 		
-			scores.push(sorted[3] + sorted[2] + sorted[1])
-		}
-		console.log(scores)
-		scoremod = Math.floor((scores[0] / 2) - 5) + Math.floor((scores[1] / 2) - 5) + Math.floor((scores[1] / 2) - 5) + Math.floor((scores[2] / 2) - 5) + Math.floor((scores[3] / 2) - 5) + Math.floor((scores[4] / 2) - 5) + Math.floor((scores[5] / 2) - 5)
-		console.log(scoremod)
-	}	
 		
-	
-	
+		case 3:
+			var scores = [0,0,0,0,0,0]
+			var scoremod = 0
+			while (scoremod <= 4 || scoremod >= 8){
+				scores = []
+				for (var i =0; i < 6; i ++){
+					var roll1 = rand(6)
+					var roll2 = rand(6)
+					var roll3 = rand(6)
+					var roll4 = rand(6)
+		
+					var sorted = bubbleSort([roll1, roll2, roll3, roll4])
+			
+					scores.push(sorted[3] + sorted[2] + sorted[1])
+				}
+				console.log(scores);
+				scoremod = Math.floor((scores[0] / 2) - 5) + Math.floor((scores[1] / 2) - 5) + Math.floor((scores[1] / 2) - 5) + Math.floor((scores[2] / 2) - 5) + Math.floor((scores[3] / 2) - 5) + Math.floor((scores[4] / 2) - 5) + Math.floor((scores[5] / 2) - 5)
+				console.log(scoremod);
+			}	
+			return scores;
+			break;
+		
+		
+	}
 	
 	
 	
 }
+
+
+
 
 
