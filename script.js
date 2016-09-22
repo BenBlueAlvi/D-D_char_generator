@@ -63,6 +63,7 @@ function Player(name, race, clas, alignment, deity, str, con, dex, ine, wis, cha
 	this.size = this.race.size
 	this.alignment = alignment;
 	this.deity = deity;
+	
 	//------------
 	this.str = str + this.race.str;
 	this.athletics = Math.floor((this.str / 2) - 5);
@@ -93,6 +94,64 @@ function Player(name, race, clas, alignment, deity, str, con, dex, ine, wis, cha
 	this.intimidate = Math.floor((this.cha / 2) - 5);
 	this.streetwise = Math.floor((this.cha / 2) - 5);
 	//------------
+	for (i in this.race.skillpls){
+		switch(this.race.skillpls[i][0]){
+			case "athletics":
+				this.athletics += this.race.skillpls[i][1]
+				break
+			case "endurance":
+				this.endurance += this.race.skillpls[i][1]
+				break
+			case "acrobatics":
+				this.acrobatics += this.race.skillpls[i][1]
+				break
+			case "stealth":
+				this.stealth += this.race.skillpls[i][1]
+				break
+			case "thievery":
+				this.thievery += this.race.skillpls[i][1]
+				break
+			case "arcana":
+				this.arcana += this.race.skillpls[i][1]
+				break
+			case "histor":
+				this.histor += this.race.skillpls[i][1]
+				break
+			case "religion":
+				this.religion += this.race.skillpls[i][1]
+				break
+			case "dungeoneering":
+				this.dungeoneering += this.race.skillpls[i][1]
+				break
+			case "heal":
+				this.heal += this.race.skillpls[i][1]
+				break
+			case "insight":
+				this.insight += this.race.skillpls[i][1]
+				break
+			case "nature":
+				this.nature += this.race.skillpls[i][1]
+				break
+			case "perception":
+				this.perception += this.race.skillpls[i][1]
+				break
+			case "bluff":
+				this.bluff += this.race.skillpls[i][1]
+				break
+			case "diplomacy":
+				this.diplomacy += this.race.skillpls[i][1]
+				break
+			case "intimidate":
+				this.intimidate += this.race.skillpls[i][1]
+				break
+			case "streetwise":
+				this.streetwise += this.race.skillpls[i][1]
+				break
+		}
+	}
+	
+	//---------------------------------
+	
 	this.hp = con + this.clas.hpbase;
 	this.ac = ac + this.clas.ac;
 	this.fort = fort + this.clas.fort;
