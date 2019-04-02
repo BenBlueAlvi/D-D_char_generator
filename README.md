@@ -1,2 +1,4 @@
 # D-D_char_generator
-A character creator for D&amp;D
+A web based character creator for D&amp;D
+
+Currently WIP
